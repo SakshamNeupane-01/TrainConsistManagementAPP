@@ -1,0 +1,45 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class UC17Test {
+
+    @Test
+    void testSort_BasicAlphabeticalSorting() {
+        String[] input = {"Sleeper", "AC Chair", "First Class", "General", "Luxury"};
+        String[] expected = {"AC Chair", "First Class", "General", "Luxury", "Sleeper"};
+
+        assertArrayEquals(expected, UseCase17TrainConsistMgmt.sortBogieNames(input));
+    }
+
+    @Test
+    void testSort_UnsortedInput() {
+        String[] input = {"Luxury", "General", "Sleeper", "AC Chair"};
+        String[] expected = {"AC Chair", "General", "Luxury", "Sleeper"};
+
+        assertArrayEquals(expected, UseCase17TrainConsistMgmt.sortBogieNames(input));
+    }
+
+    @Test
+    void testSort_AlreadySortedArray() {
+        String[] input = {"AC Chair", "First Class", "General"};
+        String[] expected = {"AC Chair", "First Class", "General"};
+
+        assertArrayEquals(expected, UseCase17TrainConsistMgmt.sortBogieNames(input));
+    }
+
+    @Test
+    void testSort_DuplicateBogieNames() {
+        String[] input = {"Sleeper", "AC Chair", "Sleeper", "General"};
+        String[] expected = {"AC Chair", "General", "Sleeper", "Sleeper"};
+
+        assertArrayEquals(expected, UseCase17TrainConsistMgmt.sortBogieNames(input));
+    }
+
+    @Test
+    void testSort_SingleElementArray() {
+        String[] input = {"Sleeper"};
+        String[] expected = {"Sleeper"};
+
+        assertArrayEquals(expected, UseCase17TrainConsistMgmt.sortBogieNames(input));
+    }
+}
